@@ -1,4 +1,4 @@
-"""Runs setup.sql against a real throwaway Postgres (pip install pgserver psycopg2-binary)
+"""Runs migrations/20260922000000_bingo.sql against a real throwaway Postgres (pip install pgserver psycopg2-binary)
 and checks every function the way the app calls it, as Supabase's `anon` role.
 
     python supabase/test_setup.py      -> prints SETUP_SQL_OK or raises
@@ -29,7 +29,7 @@ def main():
         cur.execute("do $$ begin create role anon nologin; exception when duplicate_object then null; end $$;")
         cur.execute("do $$ begin create role authenticated nologin; exception when duplicate_object then null; end $$;")
         cur.execute("grant usage on schema public to anon, authenticated;")
-        sql = open(os.path.join(HERE, "setup.sql"), encoding="utf-8").read()
+        sql = open(os.path.join(HERE, "migrations", "20260922000000_bingo.sql"), encoding="utf-8").read()
         cur.execute(sql)
         cur.execute(sql)  # running it twice must be safe
 

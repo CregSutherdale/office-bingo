@@ -12,7 +12,7 @@ database; a team code (in the invite link, not in this repo) keeps strangers out
 
 1. Sign in at https://supabase.com and click **New project** (free plan). Any name, e.g.
    `office-bingo`. Pick a database password and keep it somewhere safe.
-2. When it finishes, open **SQL Editor** > **New query**, paste all of `supabase/setup.sql`,
+2. When it finishes, open **SQL Editor** > **New query**, paste all of `supabase/migrations/20260922000000_bingo.sql`,
    change `CHANGE-ME` on line 10 to your team code, and click **Run**. It should say
    "Success. No rows returned".
 3. Open **Project Settings** > **Data API** (or **API**) and copy two values:
@@ -46,6 +46,6 @@ anything about a customer into square names or team names.
 ## Files
 
 `index.html` (page + styles), `app.js` (everything the page does), `config.js` (Supabase
-URL + anon key), `supabase/setup.sql` (tables + the functions the app calls),
-`supabase/test_setup.py` (runs setup.sql on a real throwaway Postgres and checks every
+URL + anon key), `supabase/migrations/20260922000000_bingo.sql` (tables + the functions the app calls),
+`supabase/test_setup.py` (runs the migration on a real throwaway Postgres and checks every
 function: `pip install pgserver psycopg2-binary`, then `python supabase/test_setup.py`).
