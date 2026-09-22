@@ -1,0 +1,3 @@
+supabase/setup_ready.sql
+__pycache__/
+.claude/
